@@ -7,7 +7,7 @@ require('dotenv').config();
 
 
 
-const { sequelize, User} = require("./models");
+// const { sequelize, User} = require("./models");
 
 const app = express();
 
