@@ -47,6 +47,7 @@ function authToken(req, res, next){
 }
 
 app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("/admin",authToken, (req, res) => {
   res.sendFile(path.join(__dirname, "static", "admin_dashboard.html"));
@@ -103,6 +104,10 @@ app.get("/admin/menadzeri", authToken, (req, res) => {
 app.get("/login", (req,res)=>{
   res.sendFile(path.join(__dirname, 'static', 'login.html'));
 });
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+})
 
 app.listen({ port: 7000}, async () => {
   console.log("Pokrenut na portu 7000");
